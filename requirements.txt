@@ -1,0 +1,13 @@
+apex==0.1
+easydict==1.13
+numpy==1.21.2
+nvidia_ml_py3==7.352.0
+pandas==1.5.2
+pynvml==11.4.1
+pytorch_transformers==1.2.0
+scikit_learn==0.24.2
+tensorflow==2.16.1
+torch==1.11.0+cu113
+torch_geometric==2.5.3
+tqdm==4.62.3
+transformers==4.25.1

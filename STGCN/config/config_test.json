@@ -1,0 +1,2819 @@
+{
+  "datasetCommonParams": {
+    "dataset_root_dir": "/chensiyu/work1/src/src/dataset",
+    "mosi": {
+      "aligned": {
+        "featurePath": "MOSI/Processed/aligned_50.pkl",
+        "seq_lens": [
+          50,
+          50,
+          50
+        ],
+        "feature_dims": [
+          768,
+          5,
+          20
+        ],
+        "train_samples": 1284,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      },
+      "unaligned": {
+        "featurePath": "",
+        "seq_lens": [
+          50,
+          50,
+          50
+        ],
+        "feature_dims": [
+          768,
+          5,
+          20
+        ],
+        "train_samples": 1284,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      }
+    },
+    "mosei": {
+      "aligned": {
+        "featurePath": "MOSEI/Processed/aligned_50.pkl",
+        "seq_lens": [
+          50,
+          50,
+          50
+        ],
+        "feature_dims": [
+          768,
+          74,
+          35
+        ],
+        "train_samples": 16326,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      },
+      "unaligned": {
+        "featurePath": "MOSEI/Processed/unaligned_50.pkl",
+        "seq_lens": [
+          50,
+          500,
+          375
+        ],
+        "feature_dims": [
+          768,
+          74,
+          35
+        ],
+        "train_samples": 16326,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      }
+    },
+    "sims": {
+      "unaligned": {
+        "featurePath": "sims/processed/unaligned_39.pkl",
+        "seq_lens": [
+          39,
+          400,
+          55
+        ],
+        "feature_dims": [
+          768,
+          33,
+          709
+        ],
+        "train_samples": 1368,
+        "num_classes": 3,
+        "language": "cn",
+        "KeyEval": "Loss"
+      }
+    },
+    "simsv2": {
+      "unaligned": {
+        "featurePath": "SIMSv2/Processed/sims_unaligned.pkl",
+        "seq_lens": [39, 400, 55],
+        "feature_dims": [768, 33, 709],
+        "train_samples": 2722,
+        "num_classes": 3,
+        "language": "cn",
+        "KeyEval": "Loss",
+        "missing_rate": [0.2, 0.2, 0.2],
+        "missing_seed": [1111, 1111, 1111]
+      }
+    }
+
+  },
+  "mstgcn": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": false,
+      "need_normalized": false,
+      "use_bert": true,
+      "use_finetune": true,
+      "transformers": "bert",
+      "pretrained": "bert-base-chinese",
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "learning_rate",
+        "M",
+        "T",
+        "A",
+        "V",
+        "learning_rate_bert",
+        "learning_rate_text",
+        "learning_rate_audio",
+        "learning_rate_video",
+        "learning_rate_other",
+        "weight_decay_bert",
+        "weight_decay_text",
+        "weight_decay_other",
+        "weight_decay_audio",
+        "weight_decay_video",
+        "nheads",
+        "layers"
+      ],
+      "hidden_dims": [
+        [
+          128,
+          16,
+          128
+        ],
+        [
+          64,
+          16,
+          64
+        ],
+        [
+          128,
+          32,
+          128
+        ],
+        [
+          256,
+          32,
+          256
+        ],
+        [
+          64,
+          32,
+          64
+        ]
+      ],
+      "text_out": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "post_fusion_dim": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "post_text_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "post_audio_dim": [
+        4,
+        5
+      ],
+      "post_video_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "dropouts": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ],
+      "post_dropouts": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "batch_size": [
+        16,
+        32,
+        64
+      ],
+      "learning_rate": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "M": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "T": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "A": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "V": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+    "learning_rate_bert": [
+        1e-6,
+        5e-6,
+        5e-7,
+        5e-5
+      ],
+       "learning_rate_text": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_audio": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_video": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_other": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "weight_decay_bert": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_text": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_audio": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_video": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_other": [
+        0.0001,
+        0.0
+      ],
+      "nheads": [
+        1,
+        2,
+        4
+      ],
+      "layers": [
+        1,
+        2,
+        4
+      ]
+    }
+  },
+  "mstgcn_nobert": {
+    "commonParams": {
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "need_normalized": true,
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "M",
+        "T",
+        "A",
+        "V",
+        "learning_rate_text",
+        "learning_rate_audio",
+        "learning_rate_video",
+        "learning_rate_other",
+        "weight_decay_text",
+        "weight_decay_other",
+        "weight_decay_audio",
+        "weight_decay_video",
+        "nheads",
+        "layers"
+      ],
+      "hidden_dims": [
+        [
+          128,
+          16,
+          128
+        ],
+        [
+          64,
+          16,
+          64
+        ],
+        [
+          128,
+          32,
+          128
+        ],
+        [
+          256,
+          32,
+          256
+        ],
+        [
+          64,
+          32,
+          64
+        ]
+      ],
+      "text_out": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "post_fusion_dim": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "post_text_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "post_audio_dim": [
+        4,
+        5
+      ],
+      "post_video_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "dropouts": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ],
+      "post_dropouts": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "batch_size": [
+        16,
+        32,
+        64
+      ],
+      "M": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "T": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "A": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "V": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+       "learning_rate_text": [
+        0.0005, 0.001, 0.002, 0.0001, 5e-5
+      ],
+      "learning_rate_audio": [
+        0.0005, 0.001, 0.002, 0.0001, 5e-5
+      ],
+      "learning_rate_video": [
+        0.0005, 0.001, 0.002, 0.0001, 5e-5
+      ],
+      "learning_rate_other": [
+        0.0005, 0.001, 0.002, 0.0001, 5e-5
+      ],
+      "weight_decay_text": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_audio": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_video": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_other": [
+        0.0001,
+        0.0
+      ],
+      "nheads": [
+        1,
+        4,
+        8
+      ],
+      "layers": [
+        1,
+        4,
+        8
+      ]
+    }
+  },
+  "stgcn": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": false,
+      "need_normalized": false,
+      "use_bert": true,
+      "use_finetune": true,
+      "transformers": "bert",
+      "pretrained": "bert-base-uncased",
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "learning_rate",
+        "M",
+        "T",
+        "A",
+        "V",
+        "learning_rate_bert",
+        "learning_rate_text",
+        "learning_rate_audio",
+        "learning_rate_video",
+        "learning_rate_other",
+        "weight_decay_bert",
+        "weight_decay_text",
+        "weight_decay_other",
+        "weight_decay_audio",
+        "weight_decay_video",
+        "nheads",
+        "layers"
+      ],
+      "hidden_dims": [[128,16,128]],
+        "text_out": [256],
+        "post_fusion_dim": [64],
+        "post_text_dim": [32],
+        "post_audio_dim": [4],
+        "post_video_dim": [32],
+        "dropouts": [[0.3, 0.3, 0.3]],
+        "post_dropouts": [[0.5, 0.5, 0.5, 0.5]],
+        "batch_size": [8],
+        "learning_rate": [0.000001],
+        "M": 1,
+        "T": [0.2,0.4,0.6,0.8,1],
+        "A": 0.2,
+        "V": [0.2,0.4,0.6,0.8,1],
+        "learning_rate_bert": [5e-6],
+       "learning_rate_text": [1e-5],
+      "learning_rate_audio": [1e-5],
+      "learning_rate_video": [1e-5],
+      "learning_rate_other": [5e-6],
+      "weight_decay_bert": [0.0001],
+      "weight_decay_text": [0.0],
+      "weight_decay_audio": [0.0],
+      "weight_decay_video": [0.0001],
+      "weight_decay_other": [0.0001],
+      "nheads":  [4],
+      "layers": [16]
+    }
+  },
+  "stgcn_tfn": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": false,
+      "need_normalized": false,
+      "use_bert": true,
+      "use_finetune": true,
+      "transformers": "bert",
+      "pretrained": "bert-base-uncased",
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "learning_rate",
+        "M",
+        "T",
+        "A",
+        "V",
+        "learning_rate_bert",
+        "learning_rate_text",
+        "learning_rate_audio",
+        "learning_rate_video",
+        "learning_rate_other",
+        "weight_decay_bert",
+        "weight_decay_text",
+        "weight_decay_other",
+        "weight_decay_audio",
+        "weight_decay_video",
+        "nheads"
+      ],
+      "hidden_dims": [
+        [
+          128,
+          16,
+          128
+        ],
+        [
+          64,
+          16,
+          64
+        ],
+        [
+          128,
+          32,
+          128
+        ],
+        [
+          256,
+          32,
+          256
+        ],
+        [
+          64,
+          32,
+          64
+        ]
+      ],
+      "text_out": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "post_fusion_dim": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "post_text_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "post_audio_dim": [
+        4,
+        5
+      ],
+      "post_video_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "dropouts": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ],
+      "post_dropouts": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "batch_size": [
+        16,
+        32,
+        64
+      ],
+      "learning_rate": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "M": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "T": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "A": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "V": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+    "learning_rate_bert": [
+        1e-6,
+        5e-6,
+        5e-7,
+        5e-5
+      ],
+       "learning_rate_text": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_audio": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_video": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_other": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "weight_decay_bert": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_text": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_audio": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_video": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_other": [
+        0.0001,
+        0.0
+      ],
+      "nheads": [
+        1,
+        2,
+        4
+      ]
+    }
+  },
+  "stgcn_lmf": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": false,
+      "need_normalized": false,
+      "use_bert": true,
+      "use_finetune": true,
+      "transformers": "bert",
+      "pretrained": "bert-base-uncased",
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "learning_rate",
+        "M",
+        "T",
+        "A",
+        "V",
+        "learning_rate_bert",
+        "learning_rate_text",
+        "learning_rate_audio",
+        "learning_rate_video",
+        "learning_rate_other",
+        "weight_decay_bert",
+        "weight_decay_text",
+        "weight_decay_other",
+        "weight_decay_audio",
+        "weight_decay_video",
+        "rank",
+        "nheads"
+      ],
+      "hidden_dims": [
+        [
+          128,
+          16,
+          128
+        ],
+        [
+          64,
+          16,
+          64
+        ],
+        [
+          128,
+          32,
+          128
+        ],
+        [
+          256,
+          32,
+          256
+        ],
+        [
+          64,
+          32,
+          64
+        ]
+      ],
+      "text_out": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "post_fusion_dim": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "post_text_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "post_audio_dim": [
+        4,
+        5
+      ],
+      "post_video_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "dropouts": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ],
+      "post_dropouts": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "batch_size": [
+        16,
+        32,
+        64
+      ],
+      "learning_rate": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "M": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "T": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "A": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "V": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+    "learning_rate_bert": [
+        1e-6,
+        5e-6,
+        5e-7,
+        5e-5
+      ],
+       "learning_rate_text": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_audio": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_video": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_other": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "weight_decay_bert": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_text": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_audio": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_video": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_other": [
+        0.0001,
+        0.0
+      ],
+      "rank": [3, 4, 5, 6],
+      "nheads": [
+        1,
+        2,
+        4
+      ]
+    }
+  },
+  "stgcn_selfmm": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": false,
+      "need_normalized": false,
+      "use_bert": true,
+      "use_finetune": true,
+      "transformers": "bert",
+      "pretrained": "bert-base-uncased",
+      "save_labels": false,
+      "excludeZero": true,
+      "early_stop": 8,
+      "update_epochs": 4
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "learning_rate",
+        "M",
+        "T",
+        "A",
+        "V",
+        "learning_rate_bert",
+        "learning_rate_text",
+        "learning_rate_audio",
+        "learning_rate_video",
+        "learning_rate_other",
+        "weight_decay_bert",
+        "weight_decay_text",
+        "weight_decay_other",
+        "weight_decay_audio",
+        "weight_decay_video",
+        "nheads",
+        "H"
+      ],
+      "hidden_dims": [
+        [
+          128,
+          16,
+          128
+        ],
+        [
+          64,
+          16,
+          64
+        ],
+        [
+          128,
+          32,
+          128
+        ],
+        [
+          256,
+          32,
+          256
+        ],
+        [
+          64,
+          32,
+          64
+        ]
+      ],
+      "text_out": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "post_fusion_dim": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "post_text_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "post_audio_dim": [
+        4,
+        5
+      ],
+      "post_video_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "dropouts": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ],
+      "post_dropouts": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "batch_size": [
+        16,
+        32,
+        64
+      ],
+      "learning_rate": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "M": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "T": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "A": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "V": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+    "learning_rate_bert": [
+        1e-6,
+        5e-6,
+        5e-7,
+        5e-5
+      ],
+       "learning_rate_text": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_audio": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_video": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_other": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "weight_decay_bert": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_text": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_audio": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_video": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_other": [
+        0.0001,
+        0.0
+      ],
+      "nheads": [
+        1,
+        2,
+        4
+      ],
+      "H": [3.0]
+
+    }
+  },
+  "stgcn_misa": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": false,
+      "need_normalized": false,
+      "use_bert": true,
+      "use_finetune": true,
+      "transformers": "bert",
+      "pretrained": "bert-base-uncased",
+      "early_stop": 8,
+      "update_epochs": 2,
+      "use_cmd_sim": true
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_size",
+        "dropout",
+        "reverse_grad_weight",
+        "diff_weight",
+        "sim_weight",
+        "sp_weight",
+        "recon_weight",
+        "grad_clip",
+        "weight_decay",
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "M",
+        "T",
+        "A",
+        "V",
+        "learning_rate_bert",
+        "learning_rate_text",
+        "learning_rate_audio",
+        "learning_rate_video",
+        "learning_rate_other",
+        "weight_decay_bert",
+        "weight_decay_text",
+        "weight_decay_other",
+        "weight_decay_audio",
+        "weight_decay_video",
+        "nheads"
+      ],
+      "hidden_size": [64, 128, 256],
+      "dropout": [0.5, 0.2, 0.0],
+      "reverse_grad_weight": [0.5, 0.8, 1.0],
+      "diff_weight": [0.1, 0.3, 0.5],
+      "sim_weight": [0.5, 0.8, 1.0],
+      "sp_weight": [0.0, 1.0],
+      "recon_weight": [0.5, 0.8, 1.0],
+      "grad_clip": [-1.0, 0.8, 1.0],
+      "weight_decay": [0.0, 5e-5, 0.002],
+      "hidden_dims": [
+        [
+          128,
+          16,
+          128
+        ],
+        [
+          64,
+          16,
+          64
+        ],
+        [
+          128,
+          32,
+          128
+        ],
+        [
+          256,
+          32,
+          256
+        ],
+        [
+          64,
+          32,
+          64
+        ]
+      ],
+      "text_out": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "post_fusion_dim": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "post_text_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "post_audio_dim": [
+        4,
+        5
+      ],
+      "post_video_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "dropouts": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ],
+      "post_dropouts": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "batch_size": [
+        16,
+        32,
+        64
+      ],
+      "M": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "T": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "A": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "V": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+    "learning_rate_bert": [
+        1e-6,
+        5e-6,
+        5e-7,
+        5e-5
+      ],
+       "learning_rate_text": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_audio": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_video": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_other": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "weight_decay_bert": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_text": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_audio": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_video": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_other": [
+        0.0001,
+        0.0
+      ],
+      "nheads": [
+        1,
+        4,
+        8,
+        16
+      ]
+    }
+  },
+  "stgcn_wo_stgcn": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": false,
+      "need_normalized": false,
+      "use_bert": true,
+      "use_finetune": true,
+      "transformers": "bert",
+      "pretrained": "bert-base-uncased",
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "learning_rate",
+        "M",
+        "T",
+        "A",
+        "V",
+        "learning_rate_bert",
+        "learning_rate_text",
+        "learning_rate_audio",
+        "learning_rate_video",
+        "learning_rate_other",
+        "weight_decay_bert",
+        "weight_decay_text",
+        "weight_decay_other",
+        "weight_decay_audio",
+        "weight_decay_video",
+        "nheads",
+        "layers"
+      ],
+      "hidden_dims": [
+        [
+          128,
+          16,
+          128
+        ],
+        [
+          64,
+          16,
+          64
+        ],
+        [
+          128,
+          32,
+          128
+        ],
+        [
+          256,
+          32,
+          256
+        ],
+        [
+          64,
+          32,
+          64
+        ]
+      ],
+      "text_out": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "post_fusion_dim": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "post_text_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "post_audio_dim": [
+        4,
+        5
+      ],
+      "post_video_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "dropouts": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ],
+      "post_dropouts": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "batch_size": [
+        8,
+        16,
+        32
+      ],
+      "learning_rate": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "M": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "T": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "A": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "V": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+    "learning_rate_bert": [
+        1e-6,
+        5e-6,
+        5e-7,
+        5e-5
+      ],
+       "learning_rate_text": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_audio": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_video": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_other": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "weight_decay_bert": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_text": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_audio": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_video": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_other": [
+        0.0001,
+        0.0
+      ],
+      "nheads": [
+        1,
+        4,
+        8,
+        16
+      ],
+      "layers": [
+        1,
+        4,
+        8,
+        16
+      ]
+    }
+  },
+  "stgcn_wo_el": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": false,
+      "need_normalized": false,
+      "use_bert": true,
+      "use_finetune": true,
+      "transformers": "bert",
+      "pretrained": "bert-base-uncased",
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "learning_rate",
+        "M",
+        "T",
+        "A",
+        "V",
+        "learning_rate_bert",
+        "learning_rate_text",
+        "learning_rate_audio",
+        "learning_rate_video",
+        "learning_rate_other",
+        "weight_decay_bert",
+        "weight_decay_text",
+        "weight_decay_other",
+        "weight_decay_audio",
+        "weight_decay_video",
+        "nheads",
+        "layers"
+      ],
+      "hidden_dims": [
+        [
+          128,
+          16,
+          128
+        ],
+        [
+          64,
+          16,
+          64
+        ],
+        [
+          128,
+          32,
+          128
+        ],
+        [
+          256,
+          32,
+          256
+        ],
+        [
+          64,
+          32,
+          64
+        ]
+      ],
+      "text_out": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "post_fusion_dim": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "post_text_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "post_audio_dim": [
+        4,
+        5
+      ],
+      "post_video_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "dropouts": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ],
+      "post_dropouts": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "batch_size": [
+        8,
+        16,
+        32
+      ],
+      "learning_rate": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "M": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "T": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "A": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "V": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+    "learning_rate_bert": [
+        1e-6,
+        5e-6,
+        5e-7,
+        5e-5
+      ],
+       "learning_rate_text": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_audio": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_video": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_other": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "weight_decay_bert": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_text": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_audio": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_video": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_other": [
+        0.0001,
+        0.0
+      ],
+      "nheads": [
+        1,
+        4,
+        8,
+        16
+      ],
+      "layers": [
+        1,
+        4,
+        8,
+        16
+      ]
+    }
+  },
+  "stgcn_wo_nl": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": false,
+      "need_normalized": false,
+      "use_bert": true,
+      "use_finetune": true,
+      "transformers": "bert",
+      "pretrained": "bert-base-uncased",
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "learning_rate",
+        "M",
+        "T",
+        "A",
+        "V",
+        "learning_rate_bert",
+        "learning_rate_text",
+        "learning_rate_audio",
+        "learning_rate_video",
+        "learning_rate_other",
+        "weight_decay_bert",
+        "weight_decay_text",
+        "weight_decay_other",
+        "weight_decay_audio",
+        "weight_decay_video",
+        "nheads",
+        "layers"
+      ],
+      "hidden_dims": [
+        [
+          128,
+          16,
+          128
+        ],
+        [
+          64,
+          16,
+          64
+        ],
+        [
+          128,
+          32,
+          128
+        ],
+        [
+          256,
+          32,
+          256
+        ],
+        [
+          64,
+          32,
+          64
+        ]
+      ],
+      "text_out": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "post_fusion_dim": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "post_text_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "post_audio_dim": [
+        4,
+        5
+      ],
+      "post_video_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "dropouts": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ],
+      "post_dropouts": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "batch_size": [
+        8,
+        16,
+        32
+      ],
+      "learning_rate": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "M": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "T": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "A": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "V": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+    "learning_rate_bert": [
+        1e-6,
+        5e-6,
+        5e-7,
+        5e-5
+      ],
+       "learning_rate_text": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_audio": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_video": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_other": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "weight_decay_bert": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_text": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_audio": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_video": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_other": [
+        0.0001,
+        0.0
+      ],
+      "nheads": [
+        1,
+        4,
+        8,
+        16
+      ],
+      "layers": [
+        1,
+        4,
+        8,
+        16
+      ]
+    }
+  },
+  "stgcn_wo_cl": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": false,
+      "need_normalized": false,
+      "use_bert": true,
+      "use_finetune": true,
+      "transformers": "bert",
+      "pretrained": "bert-base-uncased",
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "learning_rate",
+        "M",
+        "T",
+        "A",
+        "V",
+        "learning_rate_bert",
+        "learning_rate_text",
+        "learning_rate_audio",
+        "learning_rate_video",
+        "learning_rate_other",
+        "weight_decay_bert",
+        "weight_decay_text",
+        "weight_decay_other",
+        "weight_decay_audio",
+        "weight_decay_video",
+        "nheads",
+        "layers"
+      ],
+      "hidden_dims": [
+        [
+          128,
+          16,
+          128
+        ],
+        [
+          64,
+          16,
+          64
+        ],
+        [
+          128,
+          32,
+          128
+        ],
+        [
+          256,
+          32,
+          256
+        ],
+        [
+          64,
+          32,
+          64
+        ]
+      ],
+      "text_out": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "post_fusion_dim": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "post_text_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "post_audio_dim": [
+        4,
+        5
+      ],
+      "post_video_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "dropouts": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ],
+      "post_dropouts": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "batch_size": [
+        8,
+        16,
+        32
+      ],
+      "learning_rate": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "M": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "T": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "A": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "V": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+    "learning_rate_bert": [
+        1e-6,
+        5e-6,
+        5e-7,
+        5e-5
+      ],
+       "learning_rate_text": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_audio": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_video": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_other": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "weight_decay_bert": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_text": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_audio": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_video": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_other": [
+        0.0001,
+        0.0
+      ],
+      "nheads": [
+        1,
+        4,
+        8,
+        16
+      ],
+      "layers": [
+        1,
+        4,
+        8,
+        16
+      ]
+    }
+  },
+  "stgcn_wo_sas": {
+    "commonParams": {
+      "need_data_aligned": true,
+      "need_model_aligned": false,
+      "need_normalized": false,
+      "use_bert": true,
+      "use_finetune": true,
+      "transformers": "bert",
+      "pretrained": "bert-base-uncased",
+      "early_stop": 8
+    },
+    "debugParams": {
+      "d_paras": [
+        "hidden_dims",
+        "text_out",
+        "post_fusion_dim",
+        "post_text_dim",
+        "post_audio_dim",
+        "post_video_dim",
+        "dropouts",
+        "post_dropouts",
+        "batch_size",
+        "learning_rate",
+        "M",
+        "T",
+        "A",
+        "V",
+        "learning_rate_bert",
+        "learning_rate_text",
+        "learning_rate_audio",
+        "learning_rate_video",
+        "learning_rate_other",
+        "weight_decay_bert",
+        "weight_decay_text",
+        "weight_decay_other",
+        "weight_decay_audio",
+        "weight_decay_video",
+        "nheads",
+        "layers"
+      ],
+      "hidden_dims": [
+        [
+          128,
+          16,
+          128
+        ],
+        [
+          64,
+          16,
+          64
+        ],
+        [
+          128,
+          32,
+          128
+        ],
+        [
+          256,
+          32,
+          256
+        ],
+        [
+          64,
+          32,
+          64
+        ]
+      ],
+      "text_out": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "post_fusion_dim": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "post_text_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "post_audio_dim": [
+        4,
+        5
+      ],
+      "post_video_dim": [
+        8,
+        16,
+        32,
+        64
+      ],
+      "dropouts": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ],
+      "post_dropouts": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "batch_size": [
+        8,
+        16,
+        32
+      ],
+      "learning_rate": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "M": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "T": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "A": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "V": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+    "learning_rate_bert": [
+        1e-6,
+        5e-6,
+        5e-7,
+        5e-5
+      ],
+       "learning_rate_text": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_audio": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_video": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "learning_rate_other": [
+        1e-6,
+        5e-6,
+        1e-5
+      ],
+      "weight_decay_bert": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_text": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_audio": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_video": [
+        0.0001,
+        0.0
+      ],
+      "weight_decay_other": [
+        0.0001,
+        0.0
+      ],
+      "nheads": [
+        1,
+        4,
+        8,
+        16
+      ],
+      "layers": [
+        1,
+        4,
+        8,
+        16
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+from .STGCN import STGCN
+from .STGCN_TFN import STGCN_TFN
+from .STGCN_LMF import STGCN_LMF
+from .STGCN_SELFMM import STGCN_SELFMM
+from .STGCN_MISA import STGCN_MISA
+from .STGCN_1GCN import STGCN_1GCN
+from .STGCN_3GCN import STGCN_3GCN
