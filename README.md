@@ -1,6 +1,6 @@
 # Improving Multimodal Sentiment Analysis with a Consistency-Driven Spatio-Temporal Graph Convolutional Network
 
-![](img\model_architecture.png)
+![](img/model_architecture.png)
 
 Traditional Multimodal Sentiment Analysis (MSA) methods typically acquire sentiment features from each modality through sequence modeling techniques (e.g., LSTM). In these methods, the extraction of sentiment features within each modality is based on the order of input sequence, which may result in missing important sentiment cues due to the sequential memory mechanism. In addition, existing methods directly combine sentiment cues from different modalities, overlooking the possibility that the derived sentiment features might display conflicting sentiment polarities, which, if integrated, would result in sentiment features confusing the SA classifier. To address these issues, we first improve the extraction of sentiment information within each modality using a Spatio-Temporal Graph Convolutional Network (STGCN). It can dynamically adjust the learnable sentiment propagation on the Spatio-Temporal Graph for each modality, facilitating the spread of sentiment information that enhances MSA results. Subsequently, we enhance the fusion of sentiment cues from various modalities using a novel cross-modal fusion mechanism driven by consistency, avoiding the fusion of conflicting sentiment cues from different modalities. Extensive experiments on four benchmark MSA datasets show that our method significantly outperforms state-of-the-art models on all datasets. The code will be available upon the publication of this paper.
 
@@ -88,7 +88,7 @@ Please note, when reproducing the results using `test.py`, remember to rename th
 
 ## Results
 
-![](img\results_English.png)
+![](img/results_English.png)
 
 For more results, please refer to our paper.
 
